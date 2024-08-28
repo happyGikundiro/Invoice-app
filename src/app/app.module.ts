@@ -9,6 +9,7 @@ import { EmptyInvoiceComponent } from './components/empty-invoice/empty-invoice.
 import { InvoiceCardComponent } from './components/invoice-card/invoice-card.component';
 import { InvoiceDetailComponent } from './components/invoice-detail/invoice-detail.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './pages/home/home.component';
     EmptyInvoiceComponent,
     InvoiceCardComponent,
     InvoiceDetailComponent,
-    HomeComponent
+    HomeComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
