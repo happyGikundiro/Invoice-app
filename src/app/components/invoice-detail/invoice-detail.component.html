@@ -18,7 +18,7 @@
 
     <div class="bg-white dark:bg-darkBlue md:rounded-md fixed md:relative bottom-0 z-50 w-full flex justify-between md:justify-end md:gap-4 py-5 px-10 md:px-5">
         <app-button text="Edit" backgroundColor="bg-light dark:bg-[#252945]" textColor="text-grey dark:text-white"></app-button>
-        <app-button text="Delete" backgroundColor="bg-red" textColor="text-light"></app-button>
+        <app-button text="Delete" backgroundColor="bg-red" textColor="text-light" (click)="deleteInvoice()"></app-button>
         <app-button text="Mark as Paid" backgroundColor="bg-purple" textColor="text-light"></app-button>
     </div>
 
@@ -105,4 +105,8 @@
     
 </div>
 
+</div>
+
+<div *ngIf="showModal">
+    <app-confirm-deletion [showModal]="showModal"></app-confirm-deletion>
 </div>

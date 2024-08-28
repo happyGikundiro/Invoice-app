@@ -18,6 +18,16 @@ module.exports = {
         light: "#F8F8FB",
         black: "#0C0E16",
       },
+
+      keyframes: {
+        slideLeft: {
+          "0%": { transform: "translateX(-100%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+      },
+      animation: {
+        slideLeft: "slideLeft 0.4s ease-out",
+      },
     },
   },
   plugins: [],

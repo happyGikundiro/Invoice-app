@@ -1,0 +1,181 @@
+
+<div class="p-5 md:px-10 relative bg-light dark:bg-darkBlue md:w-[60%] md:rounded-tr-2xl md:rounded-br-2xl mt-20 lg:mt-0 lg:pl-[110px] animate-slideLeft">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-8">
+    <button class="flex gap-5 items-center">
+        <img src="/assets/icon-arrow-left.svg" alt="arrow-left">
+        <p class="text-black font-semibold dark:text-white text-sm mt-1">Go back</p>
+    </button>
+
+    <h1 class="text:black dark:text-white font-bold text-2xl">New Invoice</h1>
+
+    <div class="space-y-6">
+        <h1 class="text-purple font-semibold">Bill Form</h1>
+
+          <div>
+            <label for="streetAddress" class="text-blueCiel dark:text-grey">Street Address</label><br>
+            <input type="text" name="streetAddress" formControlName="streetAddress" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+            <div>
+                <label for="city" class="text-blueCiel dark:text-grey">City</label><br>
+                <input type="text" name="city" formControlName="city" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+            </div>
+
+            <div>
+                <label for="postCode" class="text-blueCiel dark:text-grey">PostCode</label><br>
+                <input type="text" name="postCode" formControlName="postCode" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+            </div>
+
+            <div class=" col-span-2 md:col-span-1">
+                <label for="country" class="text-blueCiel dark:text-grey">Country</label><br>
+                <input type="text" name="country" formControlName="country" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+            </div>
+          </div>
+    </div>
+
+    <div class="space-y-6">
+        <h1 class="text-purple font-semibold">Bill To</h1>
+
+          <div>
+            <label for="clientName" class="text-blueCiel dark:text-grey">Client's Name</label><br>
+            <input type="text" name="clientName" formControlName="clientName" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+          </div>
+
+          <div>
+            <label for="email" class="text-blueCiel dark:text-grey">Client's Email</label><br>
+            <input type="text" name="email" formControlName="email" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+          </div>
+
+          <div>
+            <label for="clientStreetAddress" class="text-blueCiel dark:text-grey">Street Address</label><br>
+            <input type="text" name="clientStreetAddress" formControlName="clientStreetAddress" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+            <div>
+                <label for="clientCity" class="text-blueCiel dark:text-grey">City</label><br>
+                <input type="text" name="clientCity" formControlName="clientCity" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+            </div>
+
+            <div>
+                <label for="clientPostCode" class="text-blueCiel dark:text-grey">PostCode</label><br>
+                <input type="text" name="clientPostCode" formControlName="clientPostCode" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+            </div>
+
+            <div class=" col-span-2 md:col-span-1">
+                <label for="clientCountry" class="text-blueCiel dark:text-grey">Country</label><br>
+                <input type="text" name="clientCountry" formControlName="clientCountry" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+            </div>
+          </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 ">
+        <div class="space-y-2">
+            <label for="invoiceDate" class="text-blueCiel dark:text-grey">Invoice Date</label><br>
+            <input type="date" name="invoiceDate" formControlName="invoiceDate" class="bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-3 outline-none text-black dark:text-white font-semibold w-full"
+            />
+        </div>
+
+        <div>
+            <label for="payment" class="block text-blueCiel dark:text-grey mb-2">Payment Terms</label>
+            <select name="payment" formControlName="payment" class="w-full bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md p-4 outline-none text-black dark:text-white font-semibold">
+              <option value="net1">Net 1 Day</option>
+              <option value="net7">Net 7 Days</option>
+              <option value="net14">Net 14 Days</option>
+              <option value="net30">Net 30 Days</option>
+            </select>
+          </div>
+          
+
+        <div class=" md:col-span-2">
+            <label for="projectDescription" class="text-blueCiel dark:text-grey">Project Description</label><br>
+            <input type="text" name="projectDescription" formControlName="projectDescription" class=" bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full"/>
+        </div>
+    </div>
+
+    <!-- <div class="pb-20">
+        <div class="space-y-4">
+          <h1 class="text-[#777F98] font-bold font-xl">Item List</h1>
+      
+          <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i" class="space-y-4 md:space-y-0 md:gap-4 md:grid md:grid-cols-2">
+            <div class="col-span-5 md:col-span-1">
+              <label for="itemname" class="text-blueCiel dark:text-grey">Item Name</label><br>
+              <input type="text" formControlName="itemName" class="bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full" />
+            </div>
+      
+            <div class="grid grid-cols-4 gap-4">
+              <div>
+                <label for="quantity" class="text-blueCiel dark:text-grey">Qty.</label><br>
+                <input type="text" formControlName="quantity" class="bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full" />
+              </div>
+              <div>
+                <label for="price" class="text-blueCiel dark:text-grey">Price</label><br>
+                <input type="text" formControlName="price" class="bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full" />
+              </div>
+              <div class="text-center">
+                <p class="text-blueCiel dark:text-grey">total</p>
+                <p class="text-blueCiel dark:text-grey font-bold mt-2">{{ calculateTotal(item.get('quantity')?.value, item.get('price')?.value) }}</p>
+              </div>
+              <button class="flex items-center justify-end" (click)="removeItem(i)">
+                <img src="/assets/icon-delete.svg" alt="delete-icon">
+              </button>
+            </div>
+          </div>
+      
+          <button (click)="addItem()" class="my-10 bg-[#eeeef2] dark:bg-[#252945] text-blueCiel dark:text-white rounded-full flex justify-center items-center py-3 px-5 sm:px-6 font-medium text-[12px] md:text-sm w-full">
+            + Add New Item
+          </button>
+        </div>
+    </div> -->
+      
+    <div class="pb-20">
+        <div class="space-y-4">
+          <h1 class="text-[#777F98] font-bold font-xl">Item List</h1>
+      
+          <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i" class="space-y-4 md:space-y-0 md:gap-4 md:grid md:grid-cols-2">
+            <div class="col-span-5 md:col-span-1">
+              <label for="itemName" class="text-blueCiel dark:text-grey">Item Name</label><br>
+              <input type="text" formControlName="itemName" class="bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full" />
+            </div>
+      
+            <div class="grid grid-cols-4 gap-4">
+              <div>
+                <label for="quantity" class="text-blueCiel dark:text-grey">Qty.</label><br>
+                <input type="number" formControlName="quantity" class="bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full" />
+              </div>
+              <div>
+                <label for="price" class="text-blueCiel dark:text-grey">Price</label><br>
+                <input type="number" formControlName="price" class="bg-light dark:bg-darkBlue border-2 border-lightGrey dark:border-blueNavy rounded-md px-4 py-2 outline-none text-black dark:text-white font-semibold w-full" />
+              </div>
+              <div class="text-center">
+                <p class="text-blueCiel dark:text-grey">Total</p>
+                <p class="text-blueCiel dark:text-grey font-bold mt-2">
+                  <!-- {{ calculateTotal(item.get('quantity')?.value, item.get('price')?.value) }} -->
+                </p>
+              </div>
+              <button class="flex items-center justify-end" (click)="removeItem(i)">
+                <img src="/assets/icon-delete.svg" alt="delete-icon">
+              </button>
+            </div>
+          </div>
+      
+          <button (click)="addItem()" class="my-10 bg-[#eeeef2] dark:bg-[#252945] text-blueCiel dark:text-white rounded-full flex justify-center items-center py-3 px-5 sm:px-6 font-medium text-[12px] md:text-sm w-full">
+            + Add New Item
+          </button>
+        </div>
+      </div>
+      
+    <div class="bg-white dark:bg-darkBlue md:rounded-md fixed left-0 bottom-0 z-5 w-full md:w-[60%] md:rounded-br-2xl  lg:pl-[110px] flex justify-between py-5 px-5 md:px-10">
+        <button class="bg-light dark:bg-[#252945] text-grey dark:text-white rounded-full flex justify-center items-center py-3 px-5 sm:px-6 font-medium text-[12px] md:text-sm">Discard</button>
+        
+        <div class="flex gap-4">
+        <button class="bg-lightBlue text-grey dark:text-lightGrey rounded-full flex justify-center items-center py-3 px-5 sm:px-6 font-medium text-[12px] md:text-sm">Save as Draft</button>
+        <button class="bg-purple text-light rounded-full flex justify-center items-center py-3 px-5 sm:px-6 font-medium text-[12px] md:text-sm">save & send</button> 
+        </div>
+    </div>
+
+    </form>
+    
+</div>

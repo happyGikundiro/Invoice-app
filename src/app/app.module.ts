@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,12 @@ import { InvoiceCardComponent } from './components/invoice-card/invoice-card.com
 import { InvoiceDetailComponent } from './components/invoice-detail/invoice-detail.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ButtonComponent } from './components/button/button.component';
+import { ConfirmDeletionComponent } from './components/confirm-deletion/confirm-deletion.component';
+import { AddInvoiceComponent } from './components/add-invoice/add-invoice.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { AddInvoiceReducer } from './invoice-store/add-invoice-visibility/add-invoice-visibility.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -20,11 +26,23 @@ import { ButtonComponent } from './components/button/button.component';
     InvoiceCardComponent,
     InvoiceDetailComponent,
     HomeComponent,
-    ButtonComponent
+    ButtonComponent,
+    ConfirmDeletionComponent,
+    AddInvoiceComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({ addInvoice: AddInvoiceReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+      autoPause: true,
+      trace: false,
+      traceLimit: 75,
+      connectInZone: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
+import { AddInvoiceState } from './../../invoice-store/add-invoice-visibility/add-invoice-visibility.reducer';
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { showAddInvoice } from '../../invoice-store/add-invoice-visibility/add-invoice-visibility.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +14,12 @@ export class NavbarComponent {
 
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  constructor(private store: Store<{addInvoiceReducer: AddInvoiceState}>) {}
+
+  openAddInvoice() {
+    this.store.dispatch(showAddInvoice());
   }
   
 }
