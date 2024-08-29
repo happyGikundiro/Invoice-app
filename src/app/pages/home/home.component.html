@@ -7,14 +7,9 @@
 
     <div class="pt-20 sm:px- lg:px-20 xl:px-60 lg:pt-8">
         <app-navbar></app-navbar>
-        <app-invoice-card></app-invoice-card>
-        <!-- <app-add-invoice></app-add-invoice> -->
+        <app-invoices></app-invoices>
     </div>
 
     <app-add-invoice *ngIf="showAddInvoice$ | async" (click)="closeAddInvoice()" class="transition-transform duration-300 absolute bg-black w-full bg-opacity-50 left-0 top-0"></app-add-invoice>
 
 </div>
-
-
-<!-- <app-empty-invoice></app-empty-invoice> -->
-<!-- <app-invoice-detail></app-invoice-detail> -->

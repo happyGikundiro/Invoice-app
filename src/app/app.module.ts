@@ -16,6 +16,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { AddInvoiceReducer } from './invoice-store/add-invoice-visibility/add-invoice-visibility.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
+import { invoiceReducer } from './invoice-store/invoice/invoice.reducer';
+import { InvoiceEffects } from './invoice-store/invoice/invoice.effects';
+import { InvoicesComponent } from './pages/invoices/invoices.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +34,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ButtonComponent,
     ConfirmDeletionComponent,
     AddInvoiceComponent,
+    InvoicesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ addInvoice: AddInvoiceReducer }),
+    HttpClientModule,
+    StoreModule.forRoot(
+      { addInvoice: AddInvoiceReducer, invoices: invoiceReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: !isDevMode(),
@@ -43,6 +51,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       traceLimit: 75,
       connectInZone: true,
     }),
+    EffectsModule.forRoot([InvoiceEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

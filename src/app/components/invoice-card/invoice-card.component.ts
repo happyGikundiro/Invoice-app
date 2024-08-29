@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Invoice } from '../../model/model';
 
 @Component({
   selector: 'app-invoice-card',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './invoice-card.component.css'
 })
 export class InvoiceCardComponent {
+
+  @Input() invoice!: Invoice;
 
 }
