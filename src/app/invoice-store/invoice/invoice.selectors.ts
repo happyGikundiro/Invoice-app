@@ -18,3 +18,9 @@ export const selectError = createSelector(
   selectInvoiceState,
   (state: InvoiceState) => state.error
 );
+
+export const selectInvoiceById = (invoiceId: string) => 
+    createSelector(
+      selectInvoiceState,
+      (state: InvoiceState) => state.invoices.find(invoice => invoice.id === invoiceId)
+);

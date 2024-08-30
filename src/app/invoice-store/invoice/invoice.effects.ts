@@ -24,4 +24,18 @@ export class InvoiceEffects{
             )
         )
     )
+
+    updateInvoice$ = createEffect(() =>
+        this.actions$.pipe(
+          ofType(InvoiceActions.updateInvoice),
+          map(({ invoice }) => {
+            try {
+              return InvoiceActions.updateInvoiceSuccess({ invoice });
+            } catch (error) {
+                const errorMessage = (error as Error).message || 'Unknown error';
+                return InvoiceActions.updateInvoiceFailure({ error: errorMessage });
+            }
+          })
+        )
+      );
 }
