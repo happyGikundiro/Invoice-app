@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectIsInvoiceVisible } from '../../invoice-store/add-invoice-visibility/add-invoice-visibility.selectors';
-import { hideAddInvoice } from '../../invoice-store/add-invoice-visibility/add-invoice-visibility.actions';
 import { AddInvoiceState } from '../../invoice-store/add-invoice-visibility/add-invoice-visibility.reducer';
 
 @Component({
@@ -27,9 +26,4 @@ export class HomeComponent implements OnInit{
       }
     });
   }
-
-  closeAddInvoice() {
-    // this.store.dispatch(hideAddInvoice());
-  }
-
 }

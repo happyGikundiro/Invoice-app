@@ -32,7 +32,7 @@
     </div>
 
     <div class="bg-white dark:bg-darkBlue md:rounded-md fixed md:relative bottom-0 z-50 w-full flex justify-between md:justify-end md:gap-4 py-5 px-10 md:px-5">
-        <app-button text="Edit" backgroundColor="bg-light dark:bg-[#252945]" textColor="text-grey dark:text-white"></app-button>
+        <app-button text="Edit" backgroundColor="bg-light dark:bg-[#252945]" textColor="text-grey dark:text-white" (click)="openAddInvoice()"></app-button>
         <app-button text="Delete" backgroundColor="bg-red" textColor="text-light" (click)="deleteInvoice()"></app-button>
         <ng-container *ngIf="invoice.status == 'pending'">
             <app-button text="Mark as Paid" backgroundColor="bg-purple" textColor="text-light" (click)="markAsPaid(invoice.id)"></app-button>
@@ -126,10 +126,9 @@
 <div *ngIf="showModal">
     <app-confirm-deletion [showModal]="showModal" [invoiceId]="invoice.id" (modalClosed)="showModal = false"></app-confirm-deletion>
 </div>
-
 </div>
 
 <ng-template #loading>
     <p class="min-h-screen flex items-center justify-center dark:text-blueCiel">Loading invoice details...</p>
-  </ng-template>
+</ng-template>
 

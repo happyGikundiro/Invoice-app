@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { InvoiceState } from '../../invoice-store/invoice/invoice.reducer';
 import { Observable } from 'rxjs';
 import * as InvoiceActions from '../../invoice-store/invoice/invoice.actions'
+import { showAddInvoice } from '../../invoice-store/add-invoice-visibility/add-invoice-visibility.actions';
 
 @Component({
   selector: 'app-invoice-detail',
@@ -39,5 +40,8 @@ export class InvoiceDetailComponent implements OnInit{
   markAsPaid(invoiceId: string) {
     this.store.dispatch(InvoiceActions.markAsPaid({ invoiceId }));
   }
-  
+
+  openAddInvoice() {
+    this.store.dispatch(showAddInvoice());
+  }
 }

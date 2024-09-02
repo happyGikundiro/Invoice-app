@@ -5,7 +5,6 @@ import { InvoiceDetailComponent } from './components/invoice-detail/invoice-deta
 import { AddInvoiceComponent } from './components/add-invoice/add-invoice.component';
 
 const routes: Routes = [
-  {path:"",redirectTo:"home", pathMatch:'full'},
   {path:"home", component:HomeComponent},
   {path:"invoice/:id", component:InvoiceDetailComponent},
   {path:"form", component:AddInvoiceComponent },

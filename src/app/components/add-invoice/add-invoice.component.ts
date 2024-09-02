@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl,FormArray, Validators, FormBuilder } from '@angular/forms';
 import { InvoiceState } from '../../invoice-store/invoice/invoice.reducer';
 import { Store } from '@ngrx/store';
@@ -16,11 +16,10 @@ export class AddInvoiceComponent implements OnInit{
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private store: Store<{invoice: InvoiceState}>, private router: Router) {}
+  constructor(private fb: FormBuilder, private store: Store<{invoice: InvoiceState}>, private router: Router,) {}
 
   ngOnInit(): void {
     this.initForm()
-
     this.items.valueChanges.subscribe(() => {
       this.updateTotals();
     });
@@ -41,9 +40,9 @@ export class AddInvoiceComponent implements OnInit{
       invoiceDate: new FormControl('', [Validators.required]),
       payment: new FormControl('', [Validators.required]),
       projectDescription: new FormControl('', [Validators.required]),
-      items: this.fb.array([]) 
+      items: this.fb.array([]),
+      status: new FormControl('pending')
     });
-
     this.addItem();
   }
 
@@ -90,7 +89,7 @@ export class AddInvoiceComponent implements OnInit{
         paymentTerms: this.form.value.payment,
         clientName: this.form.value.clientName,
         clientEmail: this.form.value.email,
-        status: 'pending', 
+        status: this.form.value.status,
         senderAddress: {
           street: this.form.value.streetAddress,
           city: this.form.value.city,
@@ -111,13 +110,9 @@ export class AddInvoiceComponent implements OnInit{
         })),
         total: this.calculateInvoiceTotal(this.form.value.items)
       };
-  
       this.store.dispatch(InvoiceActions.addInvoice({ invoice: newInvoice }));
-
       this.store.dispatch(hideAddInvoice())
       this.router.navigate(['home']);
-      console.log(this.form.value);
-
       this.onReset();
     } else{
       this.form.markAllAsTouched(); 
@@ -142,6 +137,11 @@ export class AddInvoiceComponent implements OnInit{
     return items.reduce((acc, item) => acc + (item.quantity * item.price), 0);
   }
 
+  saveAsDraft() {
+    this.form.patchValue({ status: 'Draft' });
+    this.onSubmit();
+  }
+
   onReset() {
     this.form.reset();
     this.items.clear(); 
@@ -149,7 +149,7 @@ export class AddInvoiceComponent implements OnInit{
   }
 
   goBack():void{
-    this.router.navigate(['/home'])
+    this.store.dispatch(hideAddInvoice());
   }
 
 }
