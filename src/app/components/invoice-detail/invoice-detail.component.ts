@@ -36,11 +36,8 @@ export class InvoiceDetailComponent implements OnInit{
     this.router.navigate(['/home'])
   }
 
-  markAsPaid(invoice: Invoice) {
-    if (invoice.status !== 'paid') {
-      const updatedInvoice = { ...invoice, status: 'paid' };
-      this.store.dispatch(InvoiceActions.updateInvoice({ invoice: updatedInvoice }));
-    }
+  markAsPaid(invoiceId: string) {
+    this.store.dispatch(InvoiceActions.markAsPaid({ invoiceId }));
   }
   
 }

@@ -18,10 +18,18 @@ export class HomeComponent implements OnInit{
 
   ngOnInit() {
     this.showAddInvoice$ = this.store.select(selectIsInvoiceVisible);
+
+    this.showAddInvoice$.subscribe((isVisible) => {
+      if (isVisible) {
+        document.body.classList.add('overflow-hidden');
+      } else {
+        document.body.classList.remove('overflow-hidden');
+      }
+    });
   }
 
   closeAddInvoice() {
-    this.store.dispatch(hideAddInvoice());
+    // this.store.dispatch(hideAddInvoice());
   }
 
 }

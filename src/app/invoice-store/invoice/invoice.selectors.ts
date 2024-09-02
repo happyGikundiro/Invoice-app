@@ -19,6 +19,20 @@ export const selectError = createSelector(
   (state: InvoiceState) => state.error
 );
 
+export const selectInvoiceFilter = createSelector(
+    selectInvoiceState,
+    (state: InvoiceState) => state.filter
+);
+  
+export const selectFilteredInvoices = createSelector(
+    selectInvoices,
+    selectInvoiceFilter,
+    (invoices, filter) => {
+      if (filter.length === 0) return invoices;
+      return invoices.filter(invoice => filter.includes(invoice.status));
+    }
+);
+
 export const selectInvoiceById = (invoiceId: string) => 
     createSelector(
       selectInvoiceState,

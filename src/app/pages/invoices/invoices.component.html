@@ -32,15 +32,18 @@
     
     <div *ngIf="dropdownOpen" class="absolute top-20 lg:top-24 right-20 lg:right-40 w-40 p-4 bg-white dark:bg-darkBlue shadow-lg rounded-lg z-50">
         <div class="flex items-center gap-2">
-            <input type="checkbox" id="draft">
+            <input type="checkbox" id="draft" [checked]="selectedFilters.includes('draft')" (change)="onFilterChange('draft', $event)"
+            class="w-4 h-4 border border-purple rounded bg-lightGrey dark:bg-darkBlue peer appearance-none checked:bg-purple dark:checked:bg-purple checked:border-transparent checked:after:content-['✓'] checked:after:text-white checked:after:text-sm checked:after:flex checked:after:items-center checked:after:justify-center">
             <label for="draft" class="text-dark font-bold dark:text-light">Draft</label>
         </div>
         <div class="flex items-center gap-2 mt-2">
-            <input type="checkbox" id="pending">
+            <input type="checkbox" id="pending" [checked]="selectedFilters.includes('pending')" (change)="onFilterChange('pending', $event)"
+            class="w-4 h-4 border border-purple rounded bg-lightGrey dark:bg-darkBlue peer appearance-none checked:bg-purple dark:checked:bg-purple checked:border-transparent checked:after:content-['✓'] checked:after:text-white checked:after:text-sm checked:after:flex checked:after:items-center checked:after:justify-center">
             <label for="pending" class="text-dark font-bold dark:text-light">Pending</label>
         </div>
         <div class="flex items-center gap-2 mt-2">
-            <input type="checkbox" id="paid">
+            <input type="checkbox" id="paid" [checked]="selectedFilters.includes('paid')" (change)="onFilterChange('paid', $event)"
+            class="w-4 h-4 border border-purple rounded bg-lightGrey dark:bg-darkBlue peer appearance-none checked:bg-purple dark:checked:bg-purple checked:border-transparent checked:after:content-['✓'] checked:after:text-white checked:after:text-sm checked:after:flex checked:after:items-center checked:after:justify-center">
             <label for="paid" class="text-dark font-bold dark:text-light">Paid</label>
         </div>
     </div>
